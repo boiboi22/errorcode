@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #191A1C; /* Dark blue background */
+            color: #fff; /* White text color */
+            text-align: center;
+            padding: 50px;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxMDAlIj48cmVjdCBmaWxsPSIjMDEwMDAxIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PHBhdGggZD0iTSAwIDAgdjEwMHYxMDAlIGgxMDAlIGhyIC0xMDAlIHZ0IC0xMDAlIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsLTEwMCkiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgcm90YXRlPSItNDUiIHN0cm9rZS1vcGFjaXR5PSIuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMzMwMzMzIi8+PC9zdmc+"); /* Subtle gradient pattern */
+            background-size: 100%; /* Make the pattern fill the entire background */
+        }
+        h1 {
+            font-size: 72px;
+            margin: 0;
+            color: #4285f4; /* Google Blue */
+        }
+        h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .search-box {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .home-link {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #4285f4;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>404</h1>
+    <h2 style="color: gray;">Page Not Found</h2>
+    <p style="color: gray;">Sorry, the page you are looking for does not exist.</p>
+<p id="math"></p>
+
+<script>
+let clickCount = 0;
+let clickTimer;
+
+function handleClick() {
+    clickCount++;
+
+    // Start the timer if it's the first click
+    if (clickCount === 1) {
+        clickTimer = setTimeout(() => {
+            resetClickCount();
+        }, 1000); // Reset after 3 seconds
+    }
+
+    // Check if the button has been clicked 3 times
+    if (clickCount === 3) {
+        clearTimeout(clickTimer); // Clear the timer
+        runCode(); // Run the desired piece of code
+        resetClickCount(); // Reset click count
+    }
+}
+
+function resetClickCount() {
+    clickCount = 0;
+    location.replace("https://www.google.com")
+}
+
+function runCode() {
+  var win = window.open();
+  win.document.body.style.margin = "0";
+  win.document.body.style.height = "100vh";
+  var iframe = win.document.createElement("iframe");
+  iframe.style.border = "none";
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.margin = "0";
+  iframe.src = "https://historyfacts.7s.com.tr";
+  win.document.body.appendChild(iframe);
+  window.close()
+}
+
+// Create the button and append it to the body
+const button = document.createElement("button");
+button.innerText = "Back to Google";
+button.style.fontWeight = "bold";
+button.style.fontSize = "24px"; // Increase font size
+button.style.padding = "16px 32px"; // Increase padding
+button.style.backgroundColor = "#4285f4"; // Google Blue background
+button.style.color = "#191A1C"; // White text color
+button.style.border = "none"; // Remove default border
+button.style.borderRadius = "8px"; // Rounded corners
+button.style.cursor = "pointer"; // Pointer cursor on hover
+button.style.transition = "background-color 0.3s, transform 0.2s"; // Transition effects
+
+// Add hover effects
+button.onmouseover = () => {
+    button.style.backgroundColor = "#3173da"; // Darker blue on hover
+    button.style.transform = "scale(1.05)"; // Slightly enlarge the button
+};
+
+button.onmouseout = () => {
+    button.style.backgroundColor = "#4285f4"; // Reset to original color
+    button.style.transform = "scale(1)"; // Reset size
+};
+
+// Attach the click handler
+button.onclick = handleClick; 
+document.body.appendChild(button);
+</script>
+
+</body>
+</html>
